@@ -453,6 +453,13 @@ td.td-pad {
   font-weight: var(--t-weight-semibold);
 }
 .tt-sb-filter { color: var(--t-brand); font-weight: var(--t-weight-semibold); }
+.tt-sb-hint {
+  color: var(--t-text-tertiary);
+  font-size: 11px;
+  opacity: .85;
+  white-space: nowrap;
+}
+@media (max-width: 900px) { .tt-sb-hint { display: none; } }
 .tt-statusbar [data-pg] {
   min-width: 26px;
   padding: 2px 6px;

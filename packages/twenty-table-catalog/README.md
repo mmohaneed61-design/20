@@ -111,6 +111,8 @@ twenty-table-catalog/
 yarn test        # أو:
 node test/smoke.js  # اختبار المحرك (فلترة/ترتيب/تجميع/تحرير/صيغ/تصدير)
 node test/pages.js  # تحميل كل الصفحات والتحقق من عدد الصفوف
+node test/edit.js   # تدفق التحرير التفاعلي: نقر، محرر، Enter/Tab/Esc/blur، تحقق
+node test/persist.js# الاستمرارية: تحرير → حفظ → إعادة تحميل → استعادة
 ```
 
 ## 📜 الترخيص

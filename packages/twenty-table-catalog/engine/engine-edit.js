@@ -54,6 +54,7 @@
       return;
     }
     if (e.target.closest('.tt-toolbar') || e.target.closest('.tt-titlebar')) return;
+    this._commitEditingIfAny(e);
     var cell = this._cellFromEvent(e);
     if (!cell || !cell.td) return;
     // checkbox selection
@@ -113,6 +114,17 @@
     }
   };
 
+  /* commit an open editor when the user clicks away (before processing the click) */
+  TableEngine.prototype._commitEditingIfAny = function (e) {
+    if (!this.editing) return;
+    if (e && e.target && e.target.closest && e.target.closest('.cell-editing')) return;
+    var ed = this.editing;
+    var inp = ed.input;
+    var raw = inp ? (inp.type === 'checkbox' ? inp.checked : inp.value) : undefined;
+    if (raw === undefined || raw === null) { this.cancelEdit(true); return; }
+    this.finishEdit(ed.rowId, ed.colId, raw, true);
+  };
+
   TableEngine.prototype._onDblClick = function (e) {
     var cell = this._cellFromEvent(e);
     if (!cell || !cell.vr || cell.vr.kind !== 'data') return;
@@ -165,6 +177,7 @@
       td.innerHTML = custom(v, row, c);
       var el = td.querySelector('input,select,textarea');
       if (el) { el.focus(); el.select && el.select(); }
+      if (this.editing) this.editing.input = el || null;
       return;
     }
     var input = document.createElement('input');
@@ -276,6 +289,7 @@
     }
     td.innerHTML = '';
     td.appendChild(input);
+    if (this.editing) this.editing.input = input;
     input.focus();
     if (input.select) {
       if (c.type === 'select') input.focus();
@@ -332,8 +346,10 @@
     this.emit('editEnded', { rowId: rowId, column: colId, committed: commit, value: value });
     if (move) {
       if (move === 'down') this._moveFocus(1, 0);
-      if (move === 'right') this._moveFocus(0, this.direction === 'rtl' ? -1 : 1);
-      if (move === 'left') this._moveFocus(0, this.direction === 'rtl' ? 1 : -1);
+      // Tab/Shift+Tab always move in reading (DOM) order, which is visually
+      // right in LTR and left in RTL — same index delta in both directions
+      if (move === 'right') this._moveFocus(0, 1);
+      if (move === 'left') this._moveFocus(0, -1);
       // reopen edit in new cell
       var c2 = this.visibleCols[this.focus.ci];
       var vr2 = this.visibleRows[this.focus.ri];

@@ -987,6 +987,7 @@
       var selCount = Object.keys(eng.selection).length;
       var active = eng.activeFilterCount();
       var html = '<span>صفوف: <b>' + total.toLocaleString() + '</b> من ' + eng.rows.length.toLocaleString() + '</span>';
+      html += '<span class="tt-sb-hint" title="انقر نقرة مزدوجة على أي خلية، أو اخترها واضغط Enter أو F2، ثم اكتب واضغط Enter للحفظ وEsc للإلغاء">✏️ للتحرير: نقرتان على الخلية أو Enter</span>';
       if (eng.mode === 'pagination') html += '<span>· صفحة <b>' + eng.page + '</b>/' + pages + '</span>';
       if (active) html += '<span class="tt-sb-filter">· 🧭 ' + active + ' فلتر نشط</span>';
       html += '<span class="tt-sb-pager"></span>';

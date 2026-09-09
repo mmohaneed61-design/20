@@ -549,9 +549,6 @@
   TableEngine.prototype.validate = function (c, value) {
     var v = value === null || value === undefined ? '' : value;
     var s = String(v);
-    (c.validators || []).forEach(function (val) {
-      val.value = v;
-    });
     if (c.required !== false && c.id !== '__rownum' && c.id !== '__select' && value === null && s === '' && c.type !== 'boolean') {
       // required only when explicitly marked
       if (c.validators.indexOf('required') !== -1) return 'حقل مطلوب';
@@ -1124,6 +1121,7 @@
     } catch (e) { /* quota */ }
   };
   TableEngine.prototype._restore = function () {
+    var self = this;
     try {
       var raw = localStorage.getItem(this.storageKey);
       if (!raw) return;
@@ -1143,7 +1141,7 @@
       if (st.data) this._normalizeData(st.data);
       if (st.groupBy) this.setGroupBy(st.groupBy);
       this.page = st.page || 1;
-    } catch (e) { }
+    } catch (e) { console.error('RESTORE ERR', e && e.message); }
   };
   function self0col(self, id) { return !!self.colById(id); }
   TableEngine.prototype.resetState = function () {

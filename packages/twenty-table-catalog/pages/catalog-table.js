@@ -50,7 +50,7 @@
         { id: 'name', title: 'الخاصية', type: 'text', width: 300, natural: true, agg: 'count' },
         { id: 'english', title: 'English', type: 'text', width: 250 },
         { id: 'group', title: 'المجموعة', type: 'select', width: 190, editable: false, options: GROUPS.map(function (g) { return g.name; }) },
-        { id: 'status', title: 'الحالة', type: 'select', width: 130, editable: false, options: ['مطبقة', 'جزئية', 'مخطط لها'], colors: { 'مطبقة': '#36b37e', 'جزئية': '#f79009', 'مخطط لها': '#999999' } }
+        { id: 'status', title: 'الحالة', type: 'select', width: 130, editable: true, options: ['مطبقة', 'جزئية', 'مخطط لها'], colors: { 'مطبقة': '#36b37e', 'جزئية': '#f79009', 'مخطط لها': '#999999' } }
       ],
       conditional: [
         { col: 'status', type: 'equals', value: 'مطبقة', bg: 'rgba(54,179,126,.08)' },
