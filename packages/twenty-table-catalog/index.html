@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<!--
+  twenty-table-catalog — index.html
+  نظام الجدول المتقدم — 800 خاصية احترافية
+  MIT License — see LICENSE
+-->
+<html lang="ar" dir="rtl" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>نظام Twenty — الجدول المتقدم | 800 خاصية</title>
+  <meta name="description" content="نظام جدول متقدم يحتوي 800 خاصية احترافية منظمة في 14 مجموعة — بحث، فلترة، ترتيب، ترقيم، ثيم داكن، تصدير. مرخص بموجب MIT." />
+  <meta name="theme-color" content="#0057FF" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230057FF'/%3E%3Ctext x='32' y='42' font-size='28' font-family='Arial' font-weight='bold' fill='white' text-anchor='middle'%3E20%3C/text%3E%3C/svg%3E" />
+  <style>
+    :root {
+      --brand: #0057FF;
+      --brand-soft: #E8F0FF;
+      --bg: #F5F6F8;
+      --card: #FFFFFF;
+      --card-2: #F0F2F5;
+      --text: #101828;
+      --muted: #667085;
+      --line: #E4E7EC;
+      --line-2: #D0D5DD;
+      --mark: #FFE58F;
+      --shadow: 0 1px 2px rgba(16, 24, 40, .06), 0 1px 3px rgba(16, 24, 40, .1);
+      --shadow-lg: 0 8px 24px rgba(16, 24, 40, .12);
+      --radius: 14px;
+    }
+    html[data-theme="dark"] {
+      --brand: #3D7BFF;
+      --brand-soft: #14213A;
+      --bg: #0B0E14;
+      --card: #12161F;
+      --card-2: #1A2029;
+      --text: #F2F4F7;
+      --muted: #98A2B3;
+      --line: #232A36;
+      --line-2: #303A4A;
+      --mark: #7A5B00;
+      --shadow: 0 1px 2px rgba(0, 0, 0, .5);
+      --shadow-lg: 0 8px 24px rgba(0, 0, 0, .55);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Tajawal", system-ui, -apple-system, "Segoe UI", sans-serif;
+      font-size: 15px;
+      line-height: 1.6;
+      transition: background .25s ease, color .25s ease;
+    }
+    .sr-only {
+      position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+      overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+    }
+    mark { background: var(--mark); color: inherit; border-radius: 3px; padding: 0 1px; }
+
+    /* ---------- الشريط العلوي ---------- */
+    .topbar {
+      position: sticky; top: 0; z-index: 50;
+      background: color-mix(in srgb, var(--card) 85%, transparent);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+    }
+    .topbar-inner {
+      max-width: 1200px; margin: 0 auto; padding: 10px 20px;
+      display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    }
+    .brand { display: flex; align-items: center; gap: 12px; min-width: 0; }
+    .logo {
+      width: 42px; height: 42px; flex: none;
+      display: grid; place-items: center;
+      background: linear-gradient(135deg, #0057FF, #3D7BFF);
+      color: #fff; font-weight: 800; font-size: 18px;
+      border-radius: 12px; box-shadow: var(--shadow);
+    }
+    .brand-name { font-weight: 800; font-size: 16px; line-height: 1.3; white-space: nowrap; }
+    .brand-sub { font-size: 12px; color: var(--muted); white-space: nowrap; }
+    .topbar-actions { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+    .btn {
+      font: inherit; font-weight: 700; cursor: pointer;
+      border: 1px solid var(--line); background: var(--card); color: var(--text);
+      border-radius: 10px; padding: 7px 13px;
+      transition: border-color .15s, background .15s, transform .05s;
+    }
+    .btn:hover { border-color: var(--brand); color: var(--brand); }
+    .btn:active { transform: scale(.97); }
+    .btn.icon-only { padding: 7px 10px; font-size: 16px; line-height: 1; }
+    .btn:focus-visible, .gcard:focus-visible, .pbtn:focus-visible, .select:focus-visible, .search input:focus-visible {
+      outline: 2px solid var(--brand); outline-offset: 2px;
+    }
+
+    .container { max-width: 1200px; margin: 0 auto; padding: 24px 20px 40px; }
+
+    /* ---------- الترويسة ---------- */
+    .hero { text-align: center; padding: 18px 0 6px; }
+    .hero h1 {
+      margin: 0; font-size: clamp(26px, 4.5vw, 40px); font-weight: 800; letter-spacing: -.5px;
+    }
+    .hero h1 .badge {
+      display: inline-block; vertical-align: middle;
+      background: var(--brand-soft); color: var(--brand);
+      font-size: clamp(13px, 2vw, 16px); font-weight: 800;
+      border: 1px solid color-mix(in srgb, var(--brand) 30%, transparent);
+      padding: 4px 14px; border-radius: 999px; margin-inline-start: 10px;
+    }
+    .hero-sub { color: var(--muted); max-width: 640px; margin: 10px auto 0; font-size: 15px; }
+
+    /* ---------- بطاقات الإحصاءات ---------- */
+    .stats {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 12px; margin-top: 22px;
+    }
+    .stat {
+      background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
+      padding: 14px 16px; box-shadow: var(--shadow);
+      display: flex; align-items: center; gap: 12px;
+    }
+    .stat-icon {
+      width: 40px; height: 40px; flex: none; display: grid; place-items: center;
+      border-radius: 10px; font-size: 19px; background: var(--brand-soft);
+    }
+    .stat-value { font-size: 22px; font-weight: 800; line-height: 1.2; }
+    .stat-label { font-size: 12px; color: var(--muted); }
+
+    /* ---------- بطاقات المجموعات ---------- */
+    .groups {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(165px, 1fr));
+      gap: 10px; margin-top: 18px;
+    }
+    .gcard {
+      font: inherit; text-align: start; cursor: pointer;
+      background: var(--card); border: 1.5px solid var(--line); border-radius: var(--radius);
+      padding: 12px 14px; box-shadow: var(--shadow);
+      transition: border-color .15s, transform .1s, box-shadow .15s;
+      display: block; width: 100%;
+    }
+    .gcard:hover { border-color: var(--gc); transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+    .gcard.active { border-color: var(--gc); background: color-mix(in srgb, var(--gc) 9%, var(--card)); }
+    .gcard-top { display: flex; align-items: center; justify-content: space-between; }
+    .gicon { font-size: 20px; }
+    .gcount {
+      font-size: 12px; font-weight: 800; color: var(--gc);
+      background: color-mix(in srgb, var(--gc) 12%, transparent);
+      padding: 1px 9px; border-radius: 999px;
+    }
+    .gname { font-weight: 800; font-size: 14px; margin-top: 6px; }
+    .gen { font-size: 11px; color: var(--muted); direction: ltr; text-align: right; }
+    .gbar { height: 5px; border-radius: 99px; background: var(--card-2); margin-top: 9px; overflow: hidden; }
+    .gbar i { display: block; height: 100%; border-radius: 99px; background: var(--gc); }
+
+    /* ---------- اللوحة الرئيسية ---------- */
+    .panel {
+      margin-top: 22px; background: var(--card); border: 1px solid var(--line);
+      border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden;
+    }
+    .toolbar {
+      display: flex; gap: 10px; flex-wrap: wrap; align-items: center;
+      padding: 14px 16px; border-bottom: 1px solid var(--line);
+    }
+    .search {
+      position: relative; flex: 1; min-width: 220px;
+    }
+    .search-icon { position: absolute; inset-inline-start: 12px; top: 50%; transform: translateY(-50%); font-size: 14px; opacity: .7; }
+    .search input {
+      font: inherit; width: 100%; padding: 9px 40px;
+      border: 1.5px solid var(--line); border-radius: 10px;
+      background: var(--bg); color: var(--text);
+      transition: border-color .15s;
+    }
+    .search input:focus { border-color: var(--brand); outline: none; }
+    .search input::placeholder { color: var(--muted); }
+    .search-kbd {
+      position: absolute; inset-inline-end: 10px; top: 50%; transform: translateY(-50%);
+      font-family: inherit; font-size: 11px; font-weight: 700; color: var(--muted);
+      border: 1px solid var(--line); border-bottom-width: 2px; border-radius: 6px;
+      padding: 1px 7px; background: var(--card); pointer-events: none;
+    }
+    .select {
+      font: inherit; font-weight: 700; padding: 8px 10px; cursor: pointer;
+      border: 1.5px solid var(--line); border-radius: 10px;
+      background: var(--bg); color: var(--text);
+    }
+    .seg {
+      display: inline-flex; border: 1.5px solid var(--line); border-radius: 10px; overflow: hidden;
+    }
+    .seg button {
+      font: inherit; font-weight: 700; font-size: 13px; cursor: pointer;
+      border: 0; background: var(--bg); color: var(--muted); padding: 8px 14px;
+    }
+    .seg button.active { background: var(--brand); color: #fff; }
+
+    .meta {
+      display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+      padding: 10px 16px; border-bottom: 1px solid var(--line); background: var(--bg);
+      font-size: 13px; color: var(--muted);
+    }
+    .chip {
+      display: inline-flex; align-items: center; gap: 7px;
+      background: var(--card); border: 1px solid var(--line); border-radius: 999px;
+      padding: 3px 10px; font-size: 12.5px; font-weight: 700; color: var(--text);
+    }
+    .chip::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--cc, var(--brand)); }
+    .chip.ghost::before { display: none; }
+    .chip button {
+      font: inherit; border: 0; background: var(--card-2); color: var(--muted);
+      width: 18px; height: 18px; border-radius: 50%; cursor: pointer; font-size: 10px; line-height: 1;
+    }
+    .chip button:hover { background: var(--brand); color: #fff; }
+
+    /* ---------- الجدول ---------- */
+    .table-wrap { overflow: auto; max-height: 72vh; }
+    table.grid { width: 100%; border-collapse: collapse; min-width: 680px; }
+    .grid thead th {
+      position: sticky; top: 0; z-index: 5;
+      background: var(--card); color: var(--muted);
+      font-size: 12.5px; font-weight: 800; letter-spacing: .2px;
+      text-align: start; padding: 11px 14px;
+      border-bottom: 2px solid var(--line);
+      cursor: pointer; user-select: none; white-space: nowrap;
+    }
+    .grid thead th:hover { color: var(--brand); }
+    .grid thead th.sorted { color: var(--brand); }
+    .grid thead th .arrow { font-size: 10px; margin-inline-start: 4px; }
+    .grid tbody td {
+      padding: 10px 14px; border-bottom: 1px solid var(--line);
+      vertical-align: middle;
+    }
+    .table-wrap.compact .grid tbody td { padding: 5px 14px; }
+    .grid tbody tr:nth-child(even) { background: color-mix(in srgb, var(--card-2) 45%, transparent); }
+    .grid tbody tr { transition: background .1s; }
+    .grid tbody tr:hover { background: var(--brand-soft); }
+    .c-num { width: 64px; }
+    .c-num td, .c-num { font-weight: 800; color: var(--muted); font-variant-numeric: tabular-nums; direction: ltr; text-align: center; }
+    .c-name { font-weight: 700; }
+    .c-en { color: var(--muted); font-size: 13px; direction: ltr; text-align: right; }
+    .c-group { white-space: nowrap; font-size: 13px; color: var(--muted); }
+    .gdot { display: inline-block; width: 9px; height: 9px; border-radius: 50%; margin-inline-end: 7px; vertical-align: baseline; }
+
+    .empty { text-align: center; padding: 56px 20px; }
+    .empty-icon { font-size: 44px; }
+    .empty h3 { margin: 10px 0 4px; font-weight: 800; }
+    .empty p { color: var(--muted); margin: 0 0 16px; }
+
+    /* ---------- الترقيم ---------- */
+    .pagination {
+      display: flex; align-items: center; justify-content: center; gap: 6px; flex-wrap: wrap;
+      padding: 14px 16px; border-top: 1px solid var(--line);
+    }
+    .pbtn {
+      font: inherit; font-weight: 700; cursor: pointer;
+      min-width: 36px; padding: 6px 10px;
+      border: 1.5px solid var(--line); border-radius: 9px;
+      background: var(--card); color: var(--text);
+    }
+    .pbtn:hover:not(:disabled):not(.active) { border-color: var(--brand); color: var(--brand); }
+    .pbtn.active { background: var(--brand); border-color: var(--brand); color: #fff; }
+    .pbtn:disabled { opacity: .4; cursor: not-allowed; }
+    .pdots { color: var(--muted); padding: 0 2px; }
+    .pinfo { margin-inline-start: 8px; font-size: 12.5px; color: var(--muted); font-weight: 700; }
+
+    /* ---------- التذييل ---------- */
+    .footer {
+      max-width: 1200px; margin: 0 auto; padding: 10px 20px 34px;
+      text-align: center; color: var(--muted); font-size: 13px;
+    }
+    .footer a { color: var(--brand); font-weight: 700; text-decoration: none; }
+    .footer a:hover { text-decoration: underline; }
+    .footer code {
+      background: var(--card-2); border: 1px solid var(--line); border-radius: 6px;
+      padding: 1px 6px; font-size: 12px; direction: ltr; unicode-bidi: embed;
+    }
+    .foot-sub { margin-top: 4px; font-size: 12px; }
+
+    /* ---------- متجاوب ---------- */
+    @media (max-width: 760px) {
+      .c-en, th.col-en { display: none; }
+      table.grid { min-width: 460px; }
+      .brand-sub { display: none; }
+      .table-wrap { max-height: none; }
+    }
+
+    /* ---------- الطباعة ---------- */
+    @media print {
+      .topbar, .toolbar, .pagination, .groups, .hero, .stats, .meta, .footer, .btn { display: none !important; }
+      body { background: #fff; color: #000; }
+      .panel { border: 0; box-shadow: none; }
+      .table-wrap { max-height: none; overflow: visible; }
+      .grid thead th { position: static; }
+      .grid tbody tr:nth-child(even) { background: #f2f2f2; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        <div class="logo" aria-hidden="true">20</div>
+        <div>
+          <div class="brand-name">نظام Twenty للجدول المتقدم</div>
+          <div class="brand-sub">800 خاصية احترافية · مرخص MIT</div>
+        </div>
+      </div>
+      <div class="topbar-actions">
+        <button id="printBtn" class="btn" title="طباعة / حفظ PDF">🖨️ طباعة</button>
+        <button id="csvBtn" class="btn" title="تصدير النتائج الحالية CSV">⬇ CSV</button>
+        <button id="jsonBtn" class="btn" title="تصدير النتائج الحالية JSON">⬇ JSON</button>
+        <button id="themeBtn" class="btn icon-only" aria-label="تبديل الثيم">🌙</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <h1>نظام الجدول المتقدم <span class="badge">800 خاصية</span></h1>
+      <p class="hero-sub">
+        فهرس شامل لأقوى خصائص الجداول المستخدمة في Excel وGoogle Sheets وAirtable وNotion وAG Grid —
+        منظم في 14 مجموعة، مع بحث فوري وفلترة وترتيب وترقيم.
+      </p>
+    </section>
+
+    <section class="stats" aria-label="إحصاءات">
+      <div class="stat">
+        <div class="stat-icon" aria-hidden="true">🧩</div>
+        <div><div class="stat-value">800</div><div class="stat-label">إجمالي الخصائص</div></div>
+      </div>
+      <div class="stat">
+        <div class="stat-icon" aria-hidden="true">🗂️</div>
+        <div><div class="stat-value">14</div><div class="stat-label">مجموعة تصنيف</div></div>
+      </div>
+      <div class="stat">
+        <div class="stat-icon" aria-hidden="true">👁️</div>
+        <div><div class="stat-value" id="statVisible">800</div><div class="stat-label">خاصية معروضة الآن</div></div>
+      </div>
+      <div class="stat">
+        <div class="stat-icon" aria-hidden="true">📜</div>
+        <div><div class="stat-value">MIT</div><div class="stat-label">ترخيص مفتوح المصدر</div></div>
+      </div>
+    </section>
+
+    <section class="groups" id="groups" aria-label="مجموعات الخصائص — انقر مجموعة للفلترة"></section>
+
+    <section class="panel" aria-label="جدول الخصائص">
+      <div class="toolbar">
+        <div class="search">
+          <span class="search-icon" aria-hidden="true">🔍</span>
+          <input id="searchInput" type="search" placeholder="ابحث في 800 خاصية بالعربية أو الإنجليزية…" aria-label="بحث في الخصائص" autocomplete="off" />
+          <kbd class="search-kbd" aria-hidden="true">/</kbd>
+        </div>
+        <select id="pageSizeSel" class="select" aria-label="عدد الصفوف في الصفحة"></select>
+        <div class="seg" id="densitySeg" role="group" aria-label="كثافة العرض">
+          <button data-density="comfortable" class="active">مريح</button>
+          <button data-density="compact">مضغوط</button>
+        </div>
+      </div>
+
+      <div class="meta">
+        <span id="resultCount" aria-live="polite"></span>
+        <div id="activeChips" style="display:flex;gap:6px;flex-wrap:wrap"></div>
+      </div>
+
+      <div class="table-wrap" id="tableWrap">
+        <table class="grid" aria-label="فهرس خصائص الجدول — 800 خاصية">
+          <thead>
+            <tr>
+              <th class="c-num col-num" data-sort="num" aria-sort="ascending">#<span class="arrow"></span></th>
+              <th data-sort="name">الخاصية<span class="arrow"></span></th>
+              <th class="col-en" data-sort="en">English<span class="arrow"></span></th>
+              <th data-sort="group">المجموعة<span class="arrow"></span></th>
+            </tr>
+          </thead>
+          <tbody id="tbody"></tbody>
+        </table>
+        <div id="emptyState" class="empty" hidden>
+          <div class="empty-icon" aria-hidden="true">🔎</div>
+          <h3>لا توجد نتائج مطابقة</h3>
+          <p>جرّب كلمات أخرى أو امسح الفلاتر النشطة.</p>
+          <button class="btn" id="clearAllBtn">مسح كل الفلاتر</button>
+        </div>
+      </div>
+
+      <nav class="pagination" id="pagination" aria-label="ترقيم الصفحات"></nav>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>
+      مرخص بموجب <a href="LICENSE">MIT License</a> — حزمة
+      <code>twenty-table-catalog</code> ضمن نظام Twenty.
+    </p>
+    <p class="foot-sub">نظام الجدول المتقدم · 800 خاصية · 14 مجموعة · 2026</p>
+  </footer>
+
+  <div class="sr-only" role="status" aria-live="polite" id="announcer"></div>
+
+  <script src="data-groups.js"></script>
+  <script src="data-features-1.js"></script>
+  <script src="data-features-2.js"></script>
+  <script src="data-features-3.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

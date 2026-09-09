@@ -1,0 +1,26 @@
+{
+  "name": "twenty-table-catalog",
+  "version": "1.0.0",
+  "private": true,
+  "license": "MIT",
+  "description": "نظام جدول متقدم — 800 خاصية احترافية (UI/UX) | Advanced table system — 800 professional features catalog",
+  "scripts": {
+    "start": "python3 -m http.server 3000 --bind 0.0.0.0",
+    "serve": "npx -y serve -l 3000 ."
+  },
+  "keywords": [
+    "table",
+    "grid",
+    "spreadsheet",
+    "features",
+    "catalog",
+    "arabic",
+    "rtl",
+    "ui",
+    "ux"
+  ],
+  "browserslist": {
+    "production": [">0.2%", "not dead", "not op_mini all"],
+    "development": ["last 1 chrome version", "last 1 firefox version", "last 1 safari version"]
+  }
+}
