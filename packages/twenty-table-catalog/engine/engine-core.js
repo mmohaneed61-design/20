@@ -843,7 +843,7 @@
     }
   };
   TableEngine.prototype.rowHeight = function () {
-    return this.density === 'comfortable' ? 40 : this.density === 'compact' ? 28 : 34;
+    return this.density === 'comfortable' ? 40 : this.density === 'compact' ? 28 : 32;
   };
   TableEngine.prototype.renderHeader = function () {
     var h = this._el('thead');
@@ -852,6 +852,12 @@
     var html = '<tr>';
     this.visibleCols.forEach(function (c, i) {
       var w = self.widths[c.id] || c.width;
+      if (c.id === '__select') {
+        var vrData = self.visibleRows.filter(function (v) { return v.kind === 'data'; });
+        var allSel = vrData.length > 0 && vrData.every(function (v) { return self._isSel(v.row); });
+        html += '<th data-col="__select" style="width:' + w + 'px;min-width:' + c.minWidth + 'px;max-width:' + c.maxWidth + 'px" class="th' + (c.fixed ? ' th-fixed' : '') + '"><input type="checkbox" data-sel-all' + (allSel ? ' checked' : '') + ' aria-label="تحديد الكل" /></th>';
+        return;
+      }
       var sortEntry = self.sort.find(function (s) { return s.col === c.id; });
       var ariaSort = sortEntry ? (sortEntry.dir === 1 ? 'ascending' : 'descending') : 'none';
       var arrow = sortEntry ? (sortEntry.dir === 1 ? '▲' : '▼') : '';

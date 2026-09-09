@@ -529,6 +529,12 @@
       var self = this;
       var thead = eng._el('thead');
       if (!thead) return;
+      thead.addEventListener('change', function (e) {
+        if (!e.target || !e.target.matches || !e.target.matches('[data-sel-all]')) return;
+        var ids = eng.visibleRows.filter(function (v) { return v.kind === 'data'; }).map(function (v) { return v.row._id; });
+        eng.setSelection(e.target.checked ? ids : []);
+        eng.render(false);
+      });
       thead.addEventListener('click', function (e) {
         var th = e.target.closest('th[data-col]');
         if (!th || e.target.closest('.th-resize')) return;
