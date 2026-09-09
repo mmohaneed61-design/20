@@ -21,7 +21,7 @@
       el: '#app',
       title: 'المشاريع',
       description: 'صيغ حية · تجميع حسب الحالة · Sparklines · تذييل إجمالي',
-      rowNumber: true,
+      rowNumber: false,
       showSelection: true,
       pageSize: 25,
       autoSave: true,
@@ -46,9 +46,10 @@
       conditional: [
         { col: 'consumption', type: 'threshold', op: 'gt', value: 90, bg: 'rgba(212,84,83,.12)', color: '#d45453' },
         { col: 'consumption', type: 'threshold', op: 'lt', value: 40, bg: 'rgba(54,179,126,.10)', color: '#1e7a4f' },
-        { col: 'progress', type: 'dataBar', color: 'var(--t-brand)' }
+        { col: 'progress', type: 'dataBar', color: 'var(--t-accent)' }
       ]
     });
+    window.TTC.addPageAction(eng, 'إضافة مشروع');
     eng.registerRenderer('status', function (v) { return window.TableEngine.badgeRenderer(v, null, eng.colById('status')); });
     eng.registerRenderer('priority', function (v) { return window.TableEngine.badgeRenderer(v, null, eng.colById('priority')); });
     eng.registerRenderer('progress', function (v) { return window.TableEngine.progressRenderer(v, null, eng.colById('progress')); });

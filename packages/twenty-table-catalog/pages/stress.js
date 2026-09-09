@@ -32,7 +32,7 @@
       el: '#app',
       title: 'سجل العملاء — ' + N.toLocaleString('en') + ' صف',
       description: 'Virtual Scrolling · البحث والفلاتر على كامل البيانات · FPS لحظي',
-      rowNumber: true,
+      rowNumber: false,
       showSelection: true,
       pageSize: 50,
       mode: 'infinite',
@@ -56,15 +56,16 @@
     eng.registerRenderer('status', function (v) { return window.TableEngine.badgeRenderer(v, null, eng.colById('status')); });
     window.TTC.registerEngine(eng);
 
-    // first render metric
+    // مؤشرات الأداء كشرائح في ترويسة الصفحة
+    var summary = window.TTC.addSummary(eng, [
+      { n: N.toLocaleString('en'), l: 'صف في الذاكرة', cls: '' },
+      { n: genMs + ' ms', l: 'توليد البيانات', cls: '' },
+      { n: '—', l: 'آخر عرض', cls: '' }
+    ]);
     eng.on('rendered', function (p) {
-      var box = document.getElementById('perfStats');
-      if (!box) return;
-      box.innerHTML =
-        '<div class="ttc-stat"><div class="ttc-stat-value">100,000</div><div class="ttc-stat-label">صف محمّل في الذاكرة</div></div>' +
-        '<div class="ttc-stat"><div class="ttc-stat-value">' + genMs + ' ms</div><div class="ttc-stat-label">توليد البيانات</div></div>' +
-        '<div class="ttc-stat"><div class="ttc-stat-value">' + p.ms + ' ms</div><div class="ttc-stat-label">آخر وقت عرض</div></div>' +
-        '<div class="ttc-stat"><div class="ttc-stat-value">' + p.rows.toLocaleString('en') + '</div><div class="ttc-stat-label">صف في النافذة الافتراضية</div></div>';
+      if (!summary) return;
+      var vals = summary.querySelectorAll('.ttc-chip-value');
+      if (vals[2]) vals[2].textContent = p.ms + ' ms';
     });
   });
 })();

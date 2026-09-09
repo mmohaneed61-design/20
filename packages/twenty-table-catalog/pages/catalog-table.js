@@ -39,7 +39,7 @@
       el: mountSel,
       title: opts.title || 'فهرس الخصائص — 800 خاصية',
       description: opts.description || 'أقوى خصائص أنظمة الجداول (Excel / Google Sheets / Airtable / Notion / AG Grid) منظمة في 14 مجموعة',
-      rowNumber: true,
+      rowNumber: false,
       showSelection: true,
       pageSize: opts.pageSize || 50,
       autoSave: opts.autoSave !== false,

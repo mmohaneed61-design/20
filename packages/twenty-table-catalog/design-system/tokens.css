@@ -1,238 +1,225 @@
 /*
  * twenty-table-catalog / design-system/tokens.css
- * Design tokens من twenty-ui (MIT License — twenty-ui package.json: "license": "MIT")
- * القيم مستخرجة من packages/twenty-ui/src/theme/constants (ThemeLight, ThemeDark,
- * GrayScaleLight/Dark, ThemeCommon, themeSpacing, Animation)
+ * Design Tokens — مستخرجة حرفياً من twenty-ui (MIT License):
+ *   packages/twenty-ui/src/theme-constants/theme-light.css
+ *   packages/twenty-ui/src/theme-constants/theme-dark.css
+ * الأسماء والقيم مطابقة لمتغيرات CSS الأصلية في twenty-ui (--t-*)
  * MIT License — see ../LICENSE
  */
 
-/* ============ Twenty Design Tokens (MIT) ============ */
-
+/* ============ Twenty Design Tokens — Light (القيم الأصلية) ============ */
 :root,
 [data-theme="light"] {
-  /* Gray scale — Twenty light */
-  --t-gray-1: #ffffff;
-  --t-gray-2: #fcfcfc;
-  --t-gray-3: #f9f9f9;
-  --t-gray-4: #f1f1f1;
-  --t-gray-5: #ebebeb;
-  --t-gray-6: #d6d6d6;
-  --t-gray-7: #cccccc;
+  /* Typography — twenty-ui */
+  --t-font-family: Inter, "Tajawal", sans-serif;
+  --t-font-size-xxs: 0.625rem;  /* 10px */
+  --t-font-size-xs: 0.85rem;    /* 13.6px */
+  --t-font-size-sm: 0.92rem;    /* 14.7px */
+  --t-font-size-md: 1rem;       /* 16px */
+  --t-font-size-lg: 1.23rem;    /* 19.7px */
+  --t-font-size-xl: 1.54rem;
+  --t-font-size-xxl: 1.85rem;
+  --t-font-weight-regular: 400;
+  --t-font-weight-medium: 500;
+  --t-font-weight-semi-bold: 600;
+  --t-text-line-height-md: 1.1;
+  --t-text-line-height-lg: 1.5;
+
+  /* Font colors — twenty-ui light */
+  --t-font-color-primary: #333333;
+  --t-font-color-secondary: #666666;
+  --t-font-color-tertiary: #999999;
+  --t-font-color-light: #b3b3b3;
+  --t-font-color-extra-light: #cccccc;
+  --t-font-color-inverted: #ffffff;
+  --t-font-color-danger: #d45453;
+
+  /* Backgrounds — twenty-ui light */
+  --t-background-primary: #ffffff;
+  --t-background-secondary: #fcfcfc;
+  --t-background-tertiary: #f1f1f1;
+  --t-background-quaternary: #ebebeb;
+  --t-background-transparent-strong: rgba(0, 0, 0, 0.071);
+  --t-background-overlay-primary: rgba(0, 0, 0, 0.039);
+
+  /* Accents (blue scale) — twenty-ui light */
+  --t-accent-primary: #d3deff;
+  --t-accent-secondary: #d3deff;
+  --t-accent-tertiary: #eef2fd;
+  --t-accent-quaternary: #f7f9fe;
+  --t-accent-accent1: #fdfdfe;
+  --t-accent-accent2: #f7f9fe;
+  --t-accent-accent3: #eef2fd;
+  --t-accent-accent4: #e1e9ff;
+  --t-accent-accent5: #d3deff;
+  --t-accent-accent6: #c2d0fe;
+  --t-accent-accent7: #aebef4;
+  --t-accent-accent8: #91a3ea;
+  --t-accent-accent9: #4661d5;
+  --t-accent-accent10: #3b57cd;
+  --t-accent-accent11: #415ac1;
+  --t-accent-accent12: #222c58;
+  --t-accent-accent3570: #91a3ea;
+  --t-accent-accent4060: #91a3ea;
+
+  /* Brand (twenty-ui common accent) */
+  --t-accent: #0057ff;
+
+  /* Borders — twenty-ui light */
+  --t-border-color-strong: #d5d5d5;
+  --t-border-color-medium: #ebebeb;
+  --t-border-color-light: #f1f1f1;
+  --t-border-color-danger: #fbdada;
+  --t-border-color-blue: #aebef4;
+  --t-border-color-transparent-strong: rgba(0, 0, 0, 0.071);
+
+  /* Radius — twenty-ui */
+  --t-border-radius-xs: 2px;
+  --t-border-radius-sm: 4px;
+  --t-border-radius-md: 8px;
+  --t-border-radius-lg: 16px;
+  --t-border-radius-xl: 20px;
+  --t-border-radius-pill: 999px;
+
+  /* Shadows — twenty-ui light */
+  --t-box-shadow-color: rgba(0, 0, 0, 0.039);
+  --t-box-shadow-light: 0px 2px 4px 0px rgba(0, 0, 0, 0.039), 0px 0px 4px 0px rgba(0, 0, 0, 0.078);
+  --t-box-shadow-strong: 2px 4px 16px 0px rgba(0, 0, 0, 0.161), 0px 2px 4px 0px rgba(0, 0, 0, 0.078);
+  --t-box-shadow-super-heavy: 0px 0px 8px 0px rgba(0, 0, 0, 0.161), 0px 8px 64px -16px rgba(0, 0, 0, 0.478);
+
+  /* Spacing — twenty-ui (multiplicator 4) */
+  --t-spacing-multiplicator: 4;
+  --t-spacing-0: 0px;
+  --t-spacing-1: 4px;
+  --t-spacing-2: 8px;
+  --t-spacing-3: 12px;
+  --t-spacing-4: 16px;
+  --t-spacing-5: 20px;
+  --t-spacing-6: 24px;
+  --t-spacing-8: 32px;
+  --t-spacing-10: 40px;
+  --t-spacing-12: 48px;
+  --t-spacing-16: 64px;
+  --t-between-siblings-gap: 2px;
+
+  /* Table — twenty-front record-table constants */
+  --t-table-row-height: 32px;
+  --t-table-checkbox-column-width: 32px;
+  --t-table-horizontal-cell-padding: 8px;
+  --t-table-horizontal-cell-margin: 8px;
+  --t-table-column-min-width: 104px;
+
+  /* Animation — twenty-ui */
+  --t-animation-duration-instant: 0.075s;
+  --t-animation-duration-fast: 0.15s;
+  --t-animation-duration-normal: 0.3s;
+  --t-clickable-element-background-transition: background 0.1s ease;
+
+  /* Semantic (لإشعارات وشارات الحالة) */
+  --t-success: #00a433;
+  --t-success-background: #00a43319;
+  --t-warning: #ff9c00;
+  --t-warning-background: #ff9c0029;
+  --t-danger: #f3000d;
+  --t-danger-background: #f3000d14;
+  --t-info: #0047f1;
+  --t-info-background: #0047f112;
+
+  /* ===== Aliases (للخلفيات المتوافقة مع ملفات CSS سابقة) ===== */
+  --t-brand: var(--t-accent);
+  --t-brand-hover: var(--t-accent-accent10);
+  --t-brand-active: var(--t-accent-accent11);
+  --t-brand-soft: var(--t-accent-quaternary);
+  --t-text-primary: var(--t-font-color-primary);
+  --t-text-secondary: var(--t-font-color-secondary);
+  --t-text-tertiary: var(--t-font-color-tertiary);
+  --t-text-light: var(--t-font-color-light);
+  --t-text-inverted: var(--t-font-color-inverted);
+  --t-text-danger: var(--t-font-color-danger);
+  --t-bg-primary: var(--t-background-primary);
+  --t-bg-secondary: var(--t-background-secondary);
+  --t-bg-tertiary: var(--t-background-tertiary);
+  --t-bg-quaternary: var(--t-background-quaternary);
+  --t-border-strong: var(--t-border-color-strong);
+  --t-border-medium: var(--t-border-color-medium);
+  --t-border-light: var(--t-border-color-light);
+  --t-radius-sm: var(--t-border-radius-sm);
+  --t-radius-md: var(--t-border-radius-md);
+  --t-shadow-light: var(--t-box-shadow-light);
+  --t-shadow-strong: var(--t-box-shadow-strong);
+  --t-warning-color: var(--t-warning);
+  --t-success-color: var(--t-success);
+
+  /* ===== Aliases legacy (أسماء قديمة مستخدمة في ملفات CSS سابقة) ===== */
+  --t-bg: var(--t-background-primary);
+  --t-bg-elevated: var(--t-background-primary);
+  --t-bg-hover: var(--t-background-secondary);
+  --t-bg-mark: var(--t-accent-accent4);
+  --t-font: var(--t-font-family);
+  --t-text-xxs: var(--t-font-size-xxs);
+  --t-text-xs: var(--t-font-size-xs);
+  --t-text-sm: var(--t-font-size-sm);
+  --t-weight-medium: var(--t-font-weight-medium);
+  --t-weight-semibold: var(--t-font-weight-semi-bold);
+  --t-line-height-md: var(--t-text-line-height-md);
+  --t-line-height-lg: var(--t-text-line-height-lg);
+  --t-anim-instant: var(--t-animation-duration-instant);
+  --t-anim-fast: var(--t-animation-duration-fast);
+  --t-anim-normal: var(--t-animation-duration-normal);
+  --t-fill-blue: var(--t-accent-quaternary);
+  --t-fill-gray: var(--t-background-tertiary);
+  --t-fill-danger: var(--t-danger-background);
+  --t-success-soft: var(--t-success-background);
+  --t-warning-soft: var(--t-warning-background);
+  --t-danger-soft: var(--t-danger-background);
   --t-gray-8: #b3b3b3;
-  --t-gray-9: #999999;
-  --t-gray-10: #838383;
-  --t-gray-11: #666666;
-  --t-gray-12: #333333;
-
-  /* Text — Twenty light */
-  --t-text-primary: #333333;
-  --t-text-secondary: #666666;
-  --t-text-tertiary: #999999;
-  --t-text-light: #b3b3b3;
-  --t-text-extra-light: #cccccc;
-  --t-text-inverted: #ffffff;
-  --t-text-danger: #d45453;
-  --t-text-on-danger: #ffffff;
-
-  /* Border — Twenty light */
-  --t-border-strong: #d6d6d6;
-  --t-border-medium: #ebebeb;
-  --t-border-light: #f1f1f1;
-  --t-border-inverted: #333333;
-  --t-border-danger: #d45453;
-  --t-border-blue: #afbcee;
-  --t-border-transparent-strong: rgba(0, 0, 0, 0.071);
-
-  /* Fill — Twenty light */
-  --t-fill-blue: #d4defd;
-  --t-fill-gray: #ebebeb;
-  --t-fill-danger: #fbdada;
-
-  /* Brand */
-  --t-brand: #0057ff;
-  --t-brand-hover: #0047cc;
-  --t-brand-active: #003fa6;
-  --t-brand-soft: #e8f0ff;
-
-  /* Semantic */
-  --t-success: #36b37e;
-  --t-success-soft: #e3f5ec;
-  --t-warning: #f79009;
-  --t-warning-soft: #fef3e2;
-  --t-danger: #d45453;
-  --t-danger-soft: #fbdada;
-  --t-info: #0057ff;
-  --t-info-soft: #e8f0ff;
-
-  /* Surfaces */
-  --t-bg: #f9f9f9;
-  --t-bg-elevated: #ffffff;
-  --t-bg-sunken: #f1f1f1;
-  --t-bg-hover: #f4f6fb;
-  --t-bg-selected: #e8f0ff;
-  --t-bg-mark: #fff3bf;
-
-  /* Tooltip */
-  --t-tooltip-bg: rgba(0, 0, 0, 0.72);
-  --t-tooltip-color: #ffffff;
-  --t-tooltip-desc: rgba(255, 255, 255, 0.64);
-
-  /* Shadows */
-  --t-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.1);
-  --t-shadow-md: 0 4px 8px rgba(0, 0, 0, 0.08), 0 2px 4px rgba(0, 0, 0, 0.06);
-  --t-shadow-lg: 0 12px 24px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.06);
-
-  color-scheme: light;
-}
-
-[data-theme="dark"] {
-  /* Gray scale — Twenty dark */
-  --t-gray-1: #171717;
-  --t-gray-2: #1b1b1b;
-  --t-gray-3: #191919;
-  --t-gray-4: #1d1d1d;
-  --t-gray-5: #222222;
-  --t-gray-6: #484848;
-  --t-gray-7: #4c4c4c;
-  --t-gray-8: #666666;
-  --t-gray-9: #818181;
-  --t-gray-10: #7b7b7b;
-  --t-gray-11: #b3b3b3;
-  --t-gray-12: #ebebeb;
-
-  /* Text — Twenty dark (inverted) */
-  --t-text-primary: #ebebeb;
-  --t-text-secondary: #b3b3b3;
-  --t-text-tertiary: #818181;
-  --t-text-light: #7b7b7b;
-  --t-text-extra-light: #666666;
-  --t-text-inverted: #171717;
-  --t-text-danger: #f28b8b;
-  --t-text-on-danger: #171717;
-
-  /* Border — Twenty dark */
-  --t-border-strong: #484848;
-  --t-border-medium: #222222;
-  --t-border-light: #1d1d1d;
-  --t-border-inverted: #ebebeb;
-  --t-border-danger: #591c24;
-  --t-border-blue: #3e4f93;
-  --t-border-transparent-strong: rgba(255, 255, 255, 0.071);
-
-  /* Fill — Twenty dark */
-  --t-fill-blue: #3e4f93;
-  --t-fill-gray: #222222;
-  --t-fill-danger: #591c24;
-
-  /* Brand */
-  --t-brand: #3d7bff;
-  --t-brand-hover: #6193ff;
-  --t-brand-active: #0057ff;
-  --t-brand-soft: #14213a;
-
-  /* Semantic */
-  --t-success: #4cc38a;
-  --t-success-soft: #12291d;
-  --t-warning: #f7a409;
-  --t-warning-soft: #2b2008;
-  --t-danger: #f28b8b;
-  --t-danger-soft: #33161a;
-  --t-info: #3d7bff;
-  --t-info-soft: #14213a;
-
-  /* Surfaces */
-  --t-bg: #171717;
-  --t-bg-elevated: #1b1b1b;
-  --t-bg-sunken: #121212;
-  --t-bg-hover: #222222;
-  --t-bg-selected: #1c2740;
-  --t-bg-mark: #4d3d00;
-
-  /* Tooltip */
-  --t-tooltip-bg: rgba(235, 235, 235, 0.92);
-  --t-tooltip-color: #171717;
-  --t-tooltip-desc: rgba(23, 23, 23, 0.64);
-
-  /* Shadows */
-  --t-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
-  --t-shadow-md: 0 4px 8px rgba(0, 0, 0, 0.5);
-  --t-shadow-lg: 0 12px 24px rgba(0, 0, 0, 0.6);
-
-  color-scheme: dark;
-}
-
-/* ============ Twenty scale (Common) ============ */
-:root {
-  /* Spacing — 4px base scale (themeSpacing) */
   --t-space-1: 4px;
   --t-space-2: 8px;
   --t-space-3: 12px;
-  --t-space-4: 16px;
-  --t-space-5: 20px;
-  --t-space-6: 24px;
-  --t-space-8: 32px;
-  --t-space-10: 40px;
-  --t-space-12: 48px;
-  --t-space-16: 64px;
-
-  /* Radius (Twenty) */
-  --t-radius-xs: 2px;
-  --t-radius-sm: 4px;
-  --t-radius-md: 8px;
-  --t-radius-lg: 16px;
-  --t-radius-xl: 20px;
-  --t-radius-xxl: 40px;
-  --t-radius-pill: 999px;
-
-  /* Typography — Twenty (Inter + Tajawal للعربية) */
-  --t-font: "Inter", "Tajawal", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --t-font-mono: "SF Mono", "Cascadia Code", "Fira Code", Consolas, monospace;
-  --t-text-xxs: 0.625rem;
-  --t-text-xs: 0.85rem;
-  --t-text-sm: 0.92rem;
-  --t-text-md: 1rem;
-  --t-text-lg: 1.23rem;
-  --t-text-xl: 1.54rem;
-  --t-text-xxl: 1.85rem;
-  --t-weight-regular: 400;
-  --t-weight-medium: 500;
-  --t-weight-semibold: 600;
-  --t-weight-bold: 700;
-  --t-weight-extrabold: 800;
-  --t-line-height-lg: 1.5;
-  --t-line-height-md: 1.1;
-
-  /* Icon sizes (Twenty) */
-  --t-icon-sm: 14px;
-  --t-icon-md: 16px;
-  --t-icon-lg: 20px;
-  --t-icon-xl: 24px;
-
-  /* Animation durations (Twenty) */
-  --t-anim-instant: 0.075s;
-  --t-anim-fast: 0.15s;
-  --t-anim-normal: 0.3s;
-  --t-anim-slow: 1.5s;
-
-  /* Modal sizes (Twenty) */
-  --t-modal-sm: 300px;
-  --t-modal-md: 400px;
-  --t-modal-lg: 53%;
-  --t-modal-xl: 1200px;
-
-  /* Table */
-  --t-row-height-comfortable: 40px;
-  --t-row-height-normal: 34px;
-  --t-row-height-compact: 28px;
-  --t-header-height: 38px;
+  --t-radius-xs: var(--t-border-radius-xs);
 }
 
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
+/* ============ Twenty Design Tokens — Dark (القيم الأصلية) ============ */
+[data-theme="dark"] {
+  --t-font-color-primary: #ebebeb;
+  --t-font-color-secondary: #b3b3b3;
+  --t-font-color-tertiary: #818181;
+  --t-font-color-light: #666666;
+  --t-font-color-extra-light: #4d4d4d;
+  --t-font-color-inverted: #171717;
+
+  --t-background-primary: #171717;
+  --t-background-secondary: #1b1b1b;
+  --t-background-tertiary: #1d1d1d;
+  --t-background-quaternary: #222222;
+  --t-background-overlay-primary: rgba(0, 0, 0, 0.3);
+
+  --t-accent-tertiary: #1a2446;
+  --t-accent-quaternary: #141625;
+  --t-accent-accent1: #101014;
+  --t-accent-accent2: #141625;
+  --t-accent-accent3: #1a2446;
+  --t-accent-accent4: #212e58;
+  --t-accent-accent5: #2a3a6b;
+  --t-accent-accent6: #34477e;
+  --t-accent-accent7: #415593;
+  --t-accent-accent8: #4d63a8;
+  --t-accent-accent9: #6d82c8;
+  --t-accent-accent10: #8fa0da;
+  --t-accent-accent11: #b3beeb;
+  --t-accent-accent12: #d9dffa;
+
+  --t-border-color-strong: #333333;
+  --t-border-color-medium: #222222;
+  --t-border-color-light: #1d1d1d;
+  --t-border-color-danger: #5c1a1a;
+  --t-border-color-blue: #2a3a6b;
+
+  --t-box-shadow-color: rgba(0, 0, 0, 0.4);
+  --t-box-shadow-light: 0px 2px 4px 0px rgba(0, 0, 0, 0.4), 0px 0px 4px 0px rgba(0, 0, 0, 0.6);
+  --t-box-shadow-strong: 2px 4px 16px 0px rgba(0, 0, 0, 0.6), 0px 2px 4px 0px rgba(0, 0, 0, 0.4);
+
+  --t-danger: #ff6b6b;
+  --t-success: #3dd66c;
+  --t-warning: #ffb340;
 }

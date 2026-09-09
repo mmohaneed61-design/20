@@ -1,18 +1,17 @@
 <!DOCTYPE html>
 <!--
   twenty-table-catalog / index.html
-  الصفحة الرئيسية — نظام الجدول المتقدم (800 خاصية)
+  الرئيسية — نظرة عامة + فهرس الخصائص الـ800
   MIT License — see LICENSE
 -->
 <html lang="ar" dir="rtl" data-theme="light">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>نظام Twenty للجدول المتقدم — 800 خاصية</title>
-  <meta name="description" content="نظام جدول متقدم بمحرك قابل لإعادة الاستخدام — 800 خاصية في 14 مجموعة، ديزاين سيستم Twenty (MIT)، RTL." />
+  <title>Twenty — نظام الجدول المتقدم</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230057FF'/%3E%3Ctext x='32' y='42' font-size='28' font-family='Arial' font-weight='bold' fill='white' text-anchor='middle'%3E20%3C/text%3E%3C/svg%3E" />
   <link rel="stylesheet" href="design-system/tokens.css" />
   <link rel="stylesheet" href="design-system/base.css" />
@@ -21,41 +20,29 @@
 </head>
 <body data-page="index">
   <main class="ttc-page">
-    <section class="ttc-hero">
-      <h1>نظام الجدول المتقدم <span class="t-badge t-badge--blue" style="vertical-align:middle">800 خاصية</span></h1>
-      <p>
-        محرك جدول واحد قابل لإعادة الاستخدام — يطبق على <b>جميع صفحات النظام</b> — بديزاين سيستم
-        <b>twenty-ui</b> (MIT) الأصلي. كل الصفحات تستخدم نفس المحرك: بحث فوري، فلترة، ترتيب متعدد الأعمدة،
-        تجميع، تحرير مباشر مع تحقق، نسخ/لصق، صيغ، تنسيق مشروط، تصدير/استيراد، ترقيم افتراضي، ثيم داكن، ولوحة مفاتيح كاملة.
-        <b>جرّبها الآن: انقر نقرة مزدوجة على أي خلية لتحريرها</b> (Enter للحفظ، Esc للإلغاء).
-      </p>
-    </section>
-
     <section class="ttc-stats" id="statCards" aria-label="إحصاءات"></section>
-
     <section class="ttc-cards" aria-label="صفحات النظام">
       <a class="ttc-card" href="people.html">
-        <div class="ttc-card-icon" aria-hidden="true">👥</div>
-        <h3>جهات الاتصال</h3>
-        <p>بيانات CRM: تحرير مباشر، تحقق من المدخلات، تلوين مشروط، تجميع، إحصاءات، حفظ تلقائي.</p>
+        <span class="ttc-card-icon">👥</span>
+        <span class="ttc-card-title">جهات الاتصال</span>
+        <span class="ttc-card-desc">تحرير مباشر، تحقق من صحة البيانات، تجميع، وحفظ محلي — 48 سجلاً تجريبياً.</span>
       </a>
       <a class="ttc-card" href="projects.html">
-        <div class="ttc-card-icon" aria-hidden="true">📁</div>
-        <h3>المشاريع</h3>
-        <p>عملة، تواريخ، أشرطة تقدم، Sparklines، صيغ حية (=ROUND…)، وتجميع حسب الحالة.</p>
+        <span class="ttc-card-icon">📁</span>
+        <span class="ttc-card-title">المشاريع</span>
+        <span class="ttc-card-desc">صيغ حية (الاستهلاك % يُحسب تلقائياً)، أشرطة تقدم، Sparklines، وتجميع حسب الحالة.</span>
       </a>
       <a class="ttc-card" href="features.html">
-        <div class="ttc-card-icon" aria-hidden="true">✅</div>
-        <h3>مصفوفة الخصائص</h3>
-        <p>حالة كل خاصية من الـ800: مطبقة / جزئية / مخطط لها — مصنفة ومرتبة وقابلة للفلترة.</p>
+        <span class="ttc-card-icon">✅</span>
+        <span class="ttc-card-title">الخصائص الـ800</span>
+        <span class="ttc-card-desc">مصفوفة شفافية: حالة كل خاصية (مطبقة/جزئية/مخططة) — قابلة للتحرير والفلترة والتصدير.</span>
       </a>
       <a class="ttc-card" href="stress.html">
-        <div class="ttc-card-icon" aria-hidden="true">⚡</div>
-        <h3>اختبار الأداء</h3>
-        <p>100,000 صف بتمرير افتراضي (Virtual Scrolling) مع عداد FPS ووقت العرض.</p>
+        <span class="ttc-card-icon">⚡</span>
+        <span class="ttc-card-title">اختبار الأداء</span>
+        <span class="ttc-card-desc">100,000 صف بتمرير افتراضي (Virtual Scrolling) مع لوحة FPS لحظية.</span>
       </a>
     </section>
-
     <div id="app"></div>
   </main>
 

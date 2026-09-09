@@ -12,19 +12,17 @@
   ready(function () {
     var c = window.FEATURE_STATUS_COUNTS;
     var pct = Math.round((c['2'] / 800) * 100);
-    var stats = document.getElementById('statCards');
-    if (stats) {
-      stats.innerHTML =
-        '<div class="ttc-stat"><div class="ttc-stat-value" style="color:var(--t-success)">' + c['2'] + '</div><div class="ttc-stat-label">مطبقة كاملة (' + pct + '%)</div></div>' +
-        '<div class="ttc-stat"><div class="ttc-stat-value" style="color:var(--t-warning)">' + c['1'] + '</div><div class="ttc-stat-label">جزئية</div></div>' +
-        '<div class="ttc-stat"><div class="ttc-stat-value" style="color:var(--t-text-tertiary)">' + c['0'] + '</div><div class="ttc-stat-label">مخطط لها</div></div>' +
-        '<div class="ttc-stat"><div class="ttc-stat-value">14</div><div class="ttc-stat-label">مجموعة تصنيف</div></div>';
-    }
-    window.TTCCatalog('#app', {
+    var eng = window.TTCCatalog('#app', {
       id: 'features-matrix',
       title: 'مصفوفة حالة الخصائص — 800 خاصية',
       description: 'فلتر بالحالة أو المجموعة، رتّب، ونسخ/تصدير',
       pageSize: 50
     });
+    window.TTC.addSummary(eng, [
+      { n: c['2'] + ' (' + pct + '%)', l: 'مطبقة', cls: 'ttc-chip--ok' },
+      { n: c['1'], l: 'جزئية', cls: 'ttc-chip--warn' },
+      { n: c['0'], l: 'مخطط لها', cls: 'ttc-chip--muted' },
+      { n: 14, l: 'مجموعة', cls: '' }
+    ]);
   });
 })();

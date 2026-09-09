@@ -1,175 +1,424 @@
 /*
  * twenty-table-catalog / shared/site.css
- * هيكل الموقع المشترك لكل الصفحات (توكنز twenty-ui MIT)
+ * هيكل تطبيق Twenty: sidebar + top bar + رأس الصفحة + بطاقات
  * MIT License — see ../LICENSE
  */
 
-.ttc-nav {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background: color-mix(in srgb, var(--t-bg-elevated) 88%, transparent);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--t-border-medium);
+/* ============ Shell ============ */
+body {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
 }
-.ttc-nav-inner {
-  max-width: 1280px;
-  margin: 0 auto;
+
+main.ttc-page {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: var(--t-background-primary);
+  margin: 0 !important;
+  max-width: none !important;
+}
+
+main.ttc-page > #app {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ============ Sidebar — Twenty ============ */
+.ttc-sidebar {
+  flex: none;
+  width: 240px;
+  display: flex;
+  flex-direction: column;
+  background: var(--t-background-primary);
+  border-inline-end: 1px solid var(--t-border-color-medium);
+  padding: 12px 8px;
+  gap: 4px;
+  z-index: 20;
+}
+
+.ttc-side-brand {
   display: flex;
   align-items: center;
-  gap: var(--t-space-4);
-  padding: 10px 20px;
+  gap: 8px;
+  padding: 4px 8px 12px;
 }
-.ttc-brand {
+.ttc-side-logo {
+  width: 28px;
+  height: 28px;
+  flex: none;
+  display: grid;
+  place-items: center;
+  background: var(--t-accent);
+  color: #fff;
+  font-weight: var(--t-font-weight-semi-bold);
+  font-size: var(--t-font-size-xs);
+  border-radius: var(--t-border-radius-sm);
+}
+.ttc-side-brand-name {
+  font-size: var(--t-font-size-sm);
+  font-weight: var(--t-font-weight-semi-bold);
+  color: var(--t-font-color-primary);
+  line-height: 1.2;
+}
+.ttc-side-brand-sub {
+  display: block;
+  font-size: var(--t-font-size-xxs);
+  font-weight: var(--t-font-weight-regular);
+  color: var(--t-font-color-tertiary);
+}
+
+.ttc-side-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  flex: 1;
+  overflow-y: auto;
+}
+.ttc-side-item {
   display: flex;
   align-items: center;
   gap: 10px;
-  margin-inline-end: auto;
+  height: 32px;
+  padding: 0 8px;
+  border-radius: var(--t-border-radius-sm);
+  color: var(--t-font-color-secondary);
+  font-size: var(--t-font-size-xs);
+  font-weight: var(--t-font-weight-medium);
+  text-decoration: none;
+  transition: var(--t-clickable-element-background-transition);
+  cursor: pointer;
 }
-.ttc-logo {
-  width: 34px;
-  height: 34px;
-  border-radius: var(--t-radius-md);
-  background: linear-gradient(135deg, #0057ff, #3d7bff);
-  color: #fff;
+.ttc-side-item:hover {
+  background: var(--t-background-secondary);
+  color: var(--t-font-color-primary);
+}
+.ttc-side-item.active {
+  background: var(--t-accent-quaternary);
+  color: var(--t-accent);
+}
+.ttc-side-item.active .ttc-side-icon {
+  color: var(--t-accent);
+}
+.ttc-side-icon {
   display: grid;
   place-items: center;
-  font-weight: var(--t-weight-bold);
-  font-size: 13px;
+  width: 18px;
+  height: 18px;
+  color: var(--t-font-color-tertiary);
   flex: none;
 }
-.ttc-brand-name {
-  font-weight: var(--t-weight-semibold);
-  font-size: var(--t-text-sm);
+.ttc-side-label {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ttc-side-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 8px 4px 0;
+  border-top: 1px solid var(--t-border-color-light);
+}
+.ttc-theme-btn {
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  display: grid;
+  place-items: center;
+  color: var(--t-font-color-secondary);
+}
+.ttc-side-user {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--t-font-size-xxs);
+  font-weight: var(--t-font-weight-medium);
+  color: var(--t-font-color-secondary);
+  min-width: 0;
+}
+.ttc-side-user span {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.ttc-side-avatar {
+  width: 24px;
+  height: 24px;
+  flex: none;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--t-accent-accent4);
+  color: var(--t-accent-accent11);
+  font-size: var(--t-font-size-xxs);
+  font-weight: var(--t-font-weight-medium);
+}
+
+/* ============ Top bar — Twenty ============ */
+.ttc-topbar {
+  flex: none;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 0 16px;
+  border-bottom: 1px solid var(--t-border-color-medium);
+  background: var(--t-background-primary);
+}
+.ttc-crumbs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+.ttc-crumbs-icon {
+  display: grid;
+  place-items: center;
+  width: 18px;
+  height: 18px;
+  color: var(--t-font-color-secondary);
+  flex: none;
+}
+.ttc-crumbs-title {
+  font-size: var(--t-font-size-sm);
+  font-weight: var(--t-font-weight-medium);
+  color: var(--t-font-color-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.ttc-topbar-search {
+  margin-inline-start: auto;
+  width: 320px;
+  max-width: 40%;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.ttc-topbar-search-icon {
+  position: absolute;
+  inset-inline-start: 10px;
+  display: grid;
+  place-items: center;
+  color: var(--t-font-color-tertiary);
+  pointer-events: none;
+}
+.ttc-topbar-search input {
+  width: 100%;
+  height: 30px;
+  padding: 0 10px 0 32px;
+  font-family: var(--t-font-family);
+  font-size: var(--t-font-size-xs);
+  color: var(--t-font-color-primary);
+  background: var(--t-background-secondary);
+  border: 1px solid transparent;
+  border-radius: var(--t-border-radius-sm);
+  transition: var(--t-clickable-element-background-transition), border-color var(--t-animation-duration-instant);
+}
+.ttc-topbar-search input::placeholder {
+  color: var(--t-font-color-tertiary);
+}
+.ttc-topbar-search input:hover {
+  border-color: var(--t-border-color-medium);
+}
+.ttc-topbar-search input:focus {
+  outline: none;
+  background: var(--t-background-primary);
+  border-color: var(--t-accent);
+  box-shadow: 0 0 0 3px var(--t-accent-quaternary);
+}
+
+/* ============ Page header — Twenty ============ */
+.ttc-pageheader {
+  flex: none;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 16px 12px;
+}
+.ttc-pageheader h1 {
+  margin: 0;
+  font-size: var(--t-font-size-lg);
+  font-weight: var(--t-font-weight-medium);
+  color: var(--t-font-color-primary);
   line-height: 1.2;
 }
-.ttc-brand-sub {
-  font-size: 10px;
-  color: var(--t-text-tertiary);
+.ttc-pageheader-sub {
+  font-size: var(--t-font-size-xxs);
+  color: var(--t-font-color-tertiary);
+  margin-top: 2px;
 }
-.ttc-links {
+.ttc-pageheader-actions {
+  margin-inline-start: auto;
   display: flex;
-  gap: 2px;
-  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
 }
-.ttc-links a {
-  font-size: var(--t-text-xs);
-  font-weight: var(--t-weight-medium);
-  color: var(--t-text-secondary);
-  text-decoration: none;
-  padding: 6px 12px;
-  border-radius: var(--t-radius-pill);
-  transition: background var(--t-anim-instant), color var(--t-anim-instant);
+
+/* summary chips (e.g. 535 مطبقة · 115 جزئية) */
+.ttc-summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: var(--t-font-size-xxs);
+  color: var(--t-font-color-secondary);
+  padding: 0 4px;
 }
-.ttc-links a:hover {
-  background: var(--t-bg-hover);
-  color: var(--t-text-primary);
+.ttc-summary b {
+  color: var(--t-font-color-primary);
+  font-weight: var(--t-font-weight-medium);
 }
-.ttc-links a.active {
-  background: var(--t-fill-blue);
-  color: var(--t-text-primary);
-  font-weight: var(--t-weight-semibold);
+.ttc-summary .dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  display: inline-block;
 }
-[data-theme="dark"] .ttc-links a.active {
-  color: #cfe0ff;
-}
-.ttc-page {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: var(--t-space-5) 20px var(--t-space-8);
-}
-.ttc-hero {
-  margin-bottom: var(--t-space-4);
-}
-.ttc-hero h1 {
-  margin: 0 0 6px;
-  font-size: var(--t-text-xxl);
-  font-weight: var(--t-weight-bold);
-  line-height: var(--t-line-height-md);
-}
-.ttc-hero p {
-  margin: 0;
-  color: var(--t-text-tertiary);
-  font-size: var(--t-text-sm);
-  max-width: 720px;
-}
+
+/* ============ Cards (home) — Twenty ============ */
 .ttc-cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-  gap: var(--t-space-3);
-  margin-bottom: var(--t-space-4);
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 12px;
+  padding: 4px 16px 16px;
 }
 .ttc-card {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 16px;
+  background: var(--t-background-primary);
+  border: 1px solid var(--t-border-color-medium);
+  border-radius: var(--t-border-radius-md);
   text-decoration: none;
   color: inherit;
-  background: var(--t-bg-elevated);
-  border: 1px solid var(--t-border-medium);
-  border-radius: var(--t-radius-lg);
-  padding: var(--t-space-4);
-  box-shadow: var(--t-shadow-sm);
-  transition: transform var(--t-anim-fast), border-color var(--t-anim-fast);
+  transition: var(--t-clickable-element-background-transition), border-color var(--t-animation-duration-instant);
 }
 .ttc-card:hover {
-  transform: translateY(-2px);
-  border-color: var(--t-brand);
+  background: var(--t-background-secondary);
+  border-color: var(--t-border-color-strong);
 }
 .ttc-card-icon {
-  font-size: 24px;
-  margin-bottom: 8px;
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  border-radius: var(--t-border-radius-sm);
+  background: var(--t-accent-quaternary);
+  color: var(--t-accent);
 }
-.ttc-card h3 {
-  margin: 0 0 4px;
-  font-size: var(--t-text-sm);
-  font-weight: var(--t-weight-semibold);
+.ttc-card-title {
+  font-size: var(--t-font-size-xs);
+  font-weight: var(--t-font-weight-medium);
+  color: var(--t-font-color-primary);
 }
-.ttc-card p {
-  margin: 0;
-  font-size: var(--t-text-xxs);
-  color: var(--t-text-tertiary);
+.ttc-card-desc {
+  font-size: var(--t-font-size-xxs);
+  color: var(--t-font-color-tertiary);
   line-height: 1.5;
 }
+
+/* ============ Stats (compact, home) ============ */
 .ttc-stats {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: var(--t-space-3);
-  margin-bottom: var(--t-space-4);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+  padding: 0 16px 8px;
 }
 .ttc-stat {
-  background: var(--t-bg-elevated);
-  border: 1px solid var(--t-border-medium);
-  border-radius: var(--t-radius-lg);
-  padding: 14px 16px;
-  box-shadow: var(--t-shadow-sm);
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  font-size: var(--t-font-size-xxs);
+  color: var(--t-font-color-secondary);
 }
 .ttc-stat-value {
-  font-size: var(--t-text-xl);
-  font-weight: var(--t-weight-bold);
-  font-variant-numeric: tabular-nums;
+  font-size: var(--t-font-size-md);
+  font-weight: var(--t-font-weight-medium);
+  color: var(--t-font-color-primary);
 }
 .ttc-stat-label {
-  font-size: var(--t-text-xxs);
-  color: var(--t-text-tertiary);
+  color: var(--t-font-color-tertiary);
 }
-.ttc-footer {
-  border-top: 1px solid var(--t-border-medium);
-  margin-top: var(--t-space-6);
-  padding: var(--t-space-4) 20px var(--t-space-6);
-  text-align: center;
-  color: var(--t-text-tertiary);
-  font-size: var(--t-text-xxs);
+
+/* ============ Page header extras (in-engine titlebar) ============ */
+.ttc-add-btn {
+  margin-inline-start: auto;
+  flex: none;
 }
-.ttc-footer a {
-  color: var(--t-brand);
-  font-weight: var(--t-weight-semibold);
-  text-decoration: none;
+.ttc-summary--inline {
+  margin-inline-start: auto;
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
 }
-.ttc-footer code {
-  background: var(--t-bg-sunken);
-  border: 1px solid var(--t-border-medium);
-  border-radius: var(--t-radius-sm);
-  padding: 1px 6px;
-  font-size: 10px;
-  direction: ltr;
+.ttc-add-btn + .ttc-summary--inline,
+.ttc-summary--inline + .ttc-add-btn {
+  margin-inline-start: 8px;
+}
+.ttc-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 24px;
+  padding: 0 8px;
+  background: var(--t-background-secondary);
+  border: 1px solid var(--t-border-color-medium);
+  border-radius: var(--t-border-radius-sm);
+  font-size: var(--t-font-size-xxs);
+  color: var(--t-font-color-secondary);
+  white-space: nowrap;
+}
+.ttc-chip-value {
+  font-weight: var(--t-font-weight-medium);
+  color: var(--t-font-color-primary);
+  font-variant-numeric: tabular-nums;
+}
+.ttc-chip-value::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--t-font-color-tertiary);
   display: inline-block;
+  margin-inline-end: 6px;
+}
+.ttc-chip--ok .ttc-chip-value::before { background: var(--t-success); }
+.ttc-chip--warn .ttc-chip-value::before { background: var(--t-warning); }
+.ttc-chip--muted .ttc-chip-value::before { background: var(--t-font-color-tertiary); }
+
+/* ============ Responsive ============ */
+@media (max-width: 860px) {
+  .ttc-sidebar {
+    width: 60px;
+    padding: 12px 6px;
+  }
+  .ttc-side-brand {
+    justify-content: center;
+    padding-inline: 0;
+  }
+  .ttc-side-brand-name,
+  .ttc-side-label,
+  .ttc-side-user span {
+    display: none;
+  }
+  .ttc-side-item {
+    justify-content: center;
+    padding: 0;
+  }
+  .ttc-side-bottom {
+    justify-content: center;
+  }
+  .ttc-topbar-search {
+    width: 180px;
+  }
 }
