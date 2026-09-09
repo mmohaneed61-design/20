@@ -7,10 +7,11 @@
 
 /* ============ Root / title bar ============ */
 .tt {
-  flex: 1;
-  min-height: 0;
+  position: absolute;
+  inset: 0;
   display: flex;
   flex-direction: column;
+  min-height: 0;
   background: var(--t-background-primary);
   font-family: var(--t-font-family);
   color: var(--t-font-color-primary);
@@ -134,8 +135,8 @@
 
 /* ============ Scroller & table ============ */
 .tt-scroller {
-  flex: 1;
-  min-height: 0;
+  flex: 1 1 0;
+  min-height: 160px;
   overflow: auto;
   position: relative;
   outline: none;
