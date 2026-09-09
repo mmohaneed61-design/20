@@ -1,0 +1,175 @@
+/*
+ * twenty-table-catalog / shared/site.css
+ * هيكل الموقع المشترك لكل الصفحات (توكنز twenty-ui MIT)
+ * MIT License — see ../LICENSE
+ */
+
+.ttc-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: color-mix(in srgb, var(--t-bg-elevated) 88%, transparent);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--t-border-medium);
+}
+.ttc-nav-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: var(--t-space-4);
+  padding: 10px 20px;
+}
+.ttc-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-inline-end: auto;
+}
+.ttc-logo {
+  width: 34px;
+  height: 34px;
+  border-radius: var(--t-radius-md);
+  background: linear-gradient(135deg, #0057ff, #3d7bff);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  font-weight: var(--t-weight-bold);
+  font-size: 13px;
+  flex: none;
+}
+.ttc-brand-name {
+  font-weight: var(--t-weight-semibold);
+  font-size: var(--t-text-sm);
+  line-height: 1.2;
+}
+.ttc-brand-sub {
+  font-size: 10px;
+  color: var(--t-text-tertiary);
+}
+.ttc-links {
+  display: flex;
+  gap: 2px;
+  flex-wrap: wrap;
+}
+.ttc-links a {
+  font-size: var(--t-text-xs);
+  font-weight: var(--t-weight-medium);
+  color: var(--t-text-secondary);
+  text-decoration: none;
+  padding: 6px 12px;
+  border-radius: var(--t-radius-pill);
+  transition: background var(--t-anim-instant), color var(--t-anim-instant);
+}
+.ttc-links a:hover {
+  background: var(--t-bg-hover);
+  color: var(--t-text-primary);
+}
+.ttc-links a.active {
+  background: var(--t-fill-blue);
+  color: var(--t-text-primary);
+  font-weight: var(--t-weight-semibold);
+}
+[data-theme="dark"] .ttc-links a.active {
+  color: #cfe0ff;
+}
+.ttc-page {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: var(--t-space-5) 20px var(--t-space-8);
+}
+.ttc-hero {
+  margin-bottom: var(--t-space-4);
+}
+.ttc-hero h1 {
+  margin: 0 0 6px;
+  font-size: var(--t-text-xxl);
+  font-weight: var(--t-weight-bold);
+  line-height: var(--t-line-height-md);
+}
+.ttc-hero p {
+  margin: 0;
+  color: var(--t-text-tertiary);
+  font-size: var(--t-text-sm);
+  max-width: 720px;
+}
+.ttc-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: var(--t-space-3);
+  margin-bottom: var(--t-space-4);
+}
+.ttc-card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  background: var(--t-bg-elevated);
+  border: 1px solid var(--t-border-medium);
+  border-radius: var(--t-radius-lg);
+  padding: var(--t-space-4);
+  box-shadow: var(--t-shadow-sm);
+  transition: transform var(--t-anim-fast), border-color var(--t-anim-fast);
+}
+.ttc-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--t-brand);
+}
+.ttc-card-icon {
+  font-size: 24px;
+  margin-bottom: 8px;
+}
+.ttc-card h3 {
+  margin: 0 0 4px;
+  font-size: var(--t-text-sm);
+  font-weight: var(--t-weight-semibold);
+}
+.ttc-card p {
+  margin: 0;
+  font-size: var(--t-text-xxs);
+  color: var(--t-text-tertiary);
+  line-height: 1.5;
+}
+.ttc-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: var(--t-space-3);
+  margin-bottom: var(--t-space-4);
+}
+.ttc-stat {
+  background: var(--t-bg-elevated);
+  border: 1px solid var(--t-border-medium);
+  border-radius: var(--t-radius-lg);
+  padding: 14px 16px;
+  box-shadow: var(--t-shadow-sm);
+}
+.ttc-stat-value {
+  font-size: var(--t-text-xl);
+  font-weight: var(--t-weight-bold);
+  font-variant-numeric: tabular-nums;
+}
+.ttc-stat-label {
+  font-size: var(--t-text-xxs);
+  color: var(--t-text-tertiary);
+}
+.ttc-footer {
+  border-top: 1px solid var(--t-border-medium);
+  margin-top: var(--t-space-6);
+  padding: var(--t-space-4) 20px var(--t-space-6);
+  text-align: center;
+  color: var(--t-text-tertiary);
+  font-size: var(--t-text-xxs);
+}
+.ttc-footer a {
+  color: var(--t-brand);
+  font-weight: var(--t-weight-semibold);
+  text-decoration: none;
+}
+.ttc-footer code {
+  background: var(--t-bg-sunken);
+  border: 1px solid var(--t-border-medium);
+  border-radius: var(--t-radius-sm);
+  padding: 1px 6px;
+  font-size: 10px;
+  direction: ltr;
+  display: inline-block;
+}

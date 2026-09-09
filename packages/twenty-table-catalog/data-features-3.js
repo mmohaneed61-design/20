@@ -144,7 +144,7 @@ window.TTC_F3 = [
 [677,"تجنب إعادة العرض","Memoization/React.memo"],
 [678,"Debounce للبحث والفلتر","Debounced Search/Filter"],
 [679,"Throttle للتمرير","Throttled Scroll"],
-[680,"ملء أعلى قيمة لحقول البيانات","Batch DOM Updates"],
+[680,"تحديثات DOM دفعية","Batch DOM Updates"],
 [681,"requestAnimationFrame","RAF Animations"],
 [682,"تحسين الصور","Image Optimization"],
 [683,"تحميل كسول للصور","Lazy Image Loading"],

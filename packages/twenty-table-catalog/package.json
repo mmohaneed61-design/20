@@ -6,7 +6,8 @@
   "description": "نظام جدول متقدم — 800 خاصية احترافية (UI/UX) | Advanced table system — 800 professional features catalog",
   "scripts": {
     "start": "python3 -m http.server 3000 --bind 0.0.0.0",
-    "serve": "npx -y serve -l 3000 ."
+    "serve": "npx -y serve -l 3000 .",
+    "test": "node test/smoke.js && node test/pages.js"
   },
   "keywords": [
     "table",

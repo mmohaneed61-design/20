@@ -1,0 +1,238 @@
+/*
+ * twenty-table-catalog / design-system/tokens.css
+ * Design tokens من twenty-ui (MIT License — twenty-ui package.json: "license": "MIT")
+ * القيم مستخرجة من packages/twenty-ui/src/theme/constants (ThemeLight, ThemeDark,
+ * GrayScaleLight/Dark, ThemeCommon, themeSpacing, Animation)
+ * MIT License — see ../LICENSE
+ */
+
+/* ============ Twenty Design Tokens (MIT) ============ */
+
+:root,
+[data-theme="light"] {
+  /* Gray scale — Twenty light */
+  --t-gray-1: #ffffff;
+  --t-gray-2: #fcfcfc;
+  --t-gray-3: #f9f9f9;
+  --t-gray-4: #f1f1f1;
+  --t-gray-5: #ebebeb;
+  --t-gray-6: #d6d6d6;
+  --t-gray-7: #cccccc;
+  --t-gray-8: #b3b3b3;
+  --t-gray-9: #999999;
+  --t-gray-10: #838383;
+  --t-gray-11: #666666;
+  --t-gray-12: #333333;
+
+  /* Text — Twenty light */
+  --t-text-primary: #333333;
+  --t-text-secondary: #666666;
+  --t-text-tertiary: #999999;
+  --t-text-light: #b3b3b3;
+  --t-text-extra-light: #cccccc;
+  --t-text-inverted: #ffffff;
+  --t-text-danger: #d45453;
+  --t-text-on-danger: #ffffff;
+
+  /* Border — Twenty light */
+  --t-border-strong: #d6d6d6;
+  --t-border-medium: #ebebeb;
+  --t-border-light: #f1f1f1;
+  --t-border-inverted: #333333;
+  --t-border-danger: #d45453;
+  --t-border-blue: #afbcee;
+  --t-border-transparent-strong: rgba(0, 0, 0, 0.071);
+
+  /* Fill — Twenty light */
+  --t-fill-blue: #d4defd;
+  --t-fill-gray: #ebebeb;
+  --t-fill-danger: #fbdada;
+
+  /* Brand */
+  --t-brand: #0057ff;
+  --t-brand-hover: #0047cc;
+  --t-brand-active: #003fa6;
+  --t-brand-soft: #e8f0ff;
+
+  /* Semantic */
+  --t-success: #36b37e;
+  --t-success-soft: #e3f5ec;
+  --t-warning: #f79009;
+  --t-warning-soft: #fef3e2;
+  --t-danger: #d45453;
+  --t-danger-soft: #fbdada;
+  --t-info: #0057ff;
+  --t-info-soft: #e8f0ff;
+
+  /* Surfaces */
+  --t-bg: #f9f9f9;
+  --t-bg-elevated: #ffffff;
+  --t-bg-sunken: #f1f1f1;
+  --t-bg-hover: #f4f6fb;
+  --t-bg-selected: #e8f0ff;
+  --t-bg-mark: #fff3bf;
+
+  /* Tooltip */
+  --t-tooltip-bg: rgba(0, 0, 0, 0.72);
+  --t-tooltip-color: #ffffff;
+  --t-tooltip-desc: rgba(255, 255, 255, 0.64);
+
+  /* Shadows */
+  --t-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.1);
+  --t-shadow-md: 0 4px 8px rgba(0, 0, 0, 0.08), 0 2px 4px rgba(0, 0, 0, 0.06);
+  --t-shadow-lg: 0 12px 24px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.06);
+
+  color-scheme: light;
+}
+
+[data-theme="dark"] {
+  /* Gray scale — Twenty dark */
+  --t-gray-1: #171717;
+  --t-gray-2: #1b1b1b;
+  --t-gray-3: #191919;
+  --t-gray-4: #1d1d1d;
+  --t-gray-5: #222222;
+  --t-gray-6: #484848;
+  --t-gray-7: #4c4c4c;
+  --t-gray-8: #666666;
+  --t-gray-9: #818181;
+  --t-gray-10: #7b7b7b;
+  --t-gray-11: #b3b3b3;
+  --t-gray-12: #ebebeb;
+
+  /* Text — Twenty dark (inverted) */
+  --t-text-primary: #ebebeb;
+  --t-text-secondary: #b3b3b3;
+  --t-text-tertiary: #818181;
+  --t-text-light: #7b7b7b;
+  --t-text-extra-light: #666666;
+  --t-text-inverted: #171717;
+  --t-text-danger: #f28b8b;
+  --t-text-on-danger: #171717;
+
+  /* Border — Twenty dark */
+  --t-border-strong: #484848;
+  --t-border-medium: #222222;
+  --t-border-light: #1d1d1d;
+  --t-border-inverted: #ebebeb;
+  --t-border-danger: #591c24;
+  --t-border-blue: #3e4f93;
+  --t-border-transparent-strong: rgba(255, 255, 255, 0.071);
+
+  /* Fill — Twenty dark */
+  --t-fill-blue: #3e4f93;
+  --t-fill-gray: #222222;
+  --t-fill-danger: #591c24;
+
+  /* Brand */
+  --t-brand: #3d7bff;
+  --t-brand-hover: #6193ff;
+  --t-brand-active: #0057ff;
+  --t-brand-soft: #14213a;
+
+  /* Semantic */
+  --t-success: #4cc38a;
+  --t-success-soft: #12291d;
+  --t-warning: #f7a409;
+  --t-warning-soft: #2b2008;
+  --t-danger: #f28b8b;
+  --t-danger-soft: #33161a;
+  --t-info: #3d7bff;
+  --t-info-soft: #14213a;
+
+  /* Surfaces */
+  --t-bg: #171717;
+  --t-bg-elevated: #1b1b1b;
+  --t-bg-sunken: #121212;
+  --t-bg-hover: #222222;
+  --t-bg-selected: #1c2740;
+  --t-bg-mark: #4d3d00;
+
+  /* Tooltip */
+  --t-tooltip-bg: rgba(235, 235, 235, 0.92);
+  --t-tooltip-color: #171717;
+  --t-tooltip-desc: rgba(23, 23, 23, 0.64);
+
+  /* Shadows */
+  --t-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --t-shadow-md: 0 4px 8px rgba(0, 0, 0, 0.5);
+  --t-shadow-lg: 0 12px 24px rgba(0, 0, 0, 0.6);
+
+  color-scheme: dark;
+}
+
+/* ============ Twenty scale (Common) ============ */
+:root {
+  /* Spacing — 4px base scale (themeSpacing) */
+  --t-space-1: 4px;
+  --t-space-2: 8px;
+  --t-space-3: 12px;
+  --t-space-4: 16px;
+  --t-space-5: 20px;
+  --t-space-6: 24px;
+  --t-space-8: 32px;
+  --t-space-10: 40px;
+  --t-space-12: 48px;
+  --t-space-16: 64px;
+
+  /* Radius (Twenty) */
+  --t-radius-xs: 2px;
+  --t-radius-sm: 4px;
+  --t-radius-md: 8px;
+  --t-radius-lg: 16px;
+  --t-radius-xl: 20px;
+  --t-radius-xxl: 40px;
+  --t-radius-pill: 999px;
+
+  /* Typography — Twenty (Inter + Tajawal للعربية) */
+  --t-font: "Inter", "Tajawal", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --t-font-mono: "SF Mono", "Cascadia Code", "Fira Code", Consolas, monospace;
+  --t-text-xxs: 0.625rem;
+  --t-text-xs: 0.85rem;
+  --t-text-sm: 0.92rem;
+  --t-text-md: 1rem;
+  --t-text-lg: 1.23rem;
+  --t-text-xl: 1.54rem;
+  --t-text-xxl: 1.85rem;
+  --t-weight-regular: 400;
+  --t-weight-medium: 500;
+  --t-weight-semibold: 600;
+  --t-weight-bold: 700;
+  --t-weight-extrabold: 800;
+  --t-line-height-lg: 1.5;
+  --t-line-height-md: 1.1;
+
+  /* Icon sizes (Twenty) */
+  --t-icon-sm: 14px;
+  --t-icon-md: 16px;
+  --t-icon-lg: 20px;
+  --t-icon-xl: 24px;
+
+  /* Animation durations (Twenty) */
+  --t-anim-instant: 0.075s;
+  --t-anim-fast: 0.15s;
+  --t-anim-normal: 0.3s;
+  --t-anim-slow: 1.5s;
+
+  /* Modal sizes (Twenty) */
+  --t-modal-sm: 300px;
+  --t-modal-md: 400px;
+  --t-modal-lg: 53%;
+  --t-modal-xl: 1200px;
+
+  /* Table */
+  --t-row-height-comfortable: 40px;
+  --t-row-height-normal: 34px;
+  --t-row-height-compact: 28px;
+  --t-header-height: 38px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
