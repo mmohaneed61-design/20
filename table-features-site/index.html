@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>موسوعة خصائص الجداول — 2000 خاصية في 100 قسم</title>
+  <meta name="description" content="دليل شامل لـ UI/UX الجداول التفاعلية وواجهات عرض البيانات: 2000 خاصية مقسمة إلى 100 أقسام، مع بحث، تصنيف، خارطة طريق عملية، وتتبّع للتنفيذ.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Changa:wght@500;600;700;800&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body id="top">
+
+  <!-- الخلفية -->
+  <div class="bg" aria-hidden="true">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="grid-lines"></div>
+  </div>
+
+  <!-- شريط التنقل -->
+  <header class="nav">
+    <a class="brand" href="#top">
+      <svg class="brand-icon" viewBox="0 0 24 24" width="26" height="26" aria-hidden="true">
+        <rect x="2.5" y="3.5" width="19" height="17" rx="3" fill="none" stroke="url(#bg1)" stroke-width="1.8"/>
+        <path d="M2.5 9.5h19M9 9.5v11M15 9.5v11" stroke="url(#bg1)" stroke-width="1.8"/>
+        <defs><linearGradient id="bg1" x1="0" y1="0" x2="24" y2="24">
+          <stop stop-color="#22d3ee"/><stop offset=".55" stop-color="#818cf8"/><stop offset="1" stop-color="#e879f9"/>
+        </linearGradient></defs>
+      </svg>
+      <b>موسوعة خصائص الجداول</b>
+    </a>
+    <nav class="nav-links" aria-label="أقسام الموقع">
+      <a href="#search">البحث</a>
+      <a href="#sections">الأقسام</a>
+      <a href="#roadmap">البداية العملية</a>
+      <a href="#about">عن القائمة</a>
+    </nav>
+    <div class="nav-actions">
+      <button id="themeBtn" class="icon-btn" type="button" title="تبديل المظهر" aria-label="تبديل المظهر">
+        <span class="theme-icon dark">☀</span>
+        <span class="theme-icon light">☾</span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- الواجهة -->
+    <section class="hero">
+      <div class="hero-badge">١٠٠ قسم × ٢٠ خاصية</div>
+      <h1>
+        <span class="num">2000</span> خاصية حقيقية
+        <br>للجداول التفاعلية وواجهات عرض البيانات
+      </h1>
+      <p class="lead">
+        دليل شامل لتصميم وتشييد تجربة «جداول»: جداول إدارية، وجداول بيانات، وتقارير،
+        واستخدامات متخصصة — من تثبيت الأعمدة حتى المعاملات والتدقيق.
+        <b>اختر ما يناسبك، واجعل الخصائص المتقدمة اختيارية</b> حتى لا تصبح الواجهة معقدة.
+      </p>
+      <div class="hero-actions">
+        <a class="btn primary" href="#sections">تصفّح الأقسام المئة</a>
+        <a class="btn ghost" href="#roadmap">خارطة البداية العملية</a>
+        <button class="btn ghost" id="randomBtn" type="button">🎲 خاصية عشوائية</button>
+      </div>
+
+      <div class="stats" role="list">
+        <div class="stat" role="listitem">
+          <span class="stat-num" data-count="2000">0</span>
+          <span class="stat-label">خاصية</span>
+        </div>
+        <div class="stat" role="listitem">
+          <span class="stat-num" data-count="100">0</span>
+          <span class="stat-label">قسم</span>
+        </div>
+        <div class="stat" role="listitem">
+          <span class="stat-num" data-count="20">0</span>
+          <span class="stat-label">خاصية في كل قسم</span>
+        </div>
+        <div class="stat" role="listitem">
+          <span class="stat-num" data-count="18">0</span>
+          <span class="stat-label">مجالًا</span>
+        </div>
+        <div class="stat stat-ring" role="listitem">
+          <svg viewBox="0 0 44 44" class="ring" aria-hidden="true">
+            <circle class="ring-bg" cx="22" cy="22" r="18.5"></circle>
+            <circle class="ring-fg" id="ringFg" cx="22" cy="22" r="18.5"></circle>
+            <text id="ringText" x="22" y="26.5" text-anchor="middle">0%</text>
+          </svg>
+          <span class="stat-label">تقدّمك (المُنفّذ)</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- البحث -->
+    <section id="search" class="search-panel reveal" aria-labelledby="searchTitle">
+      <h2 id="searchTitle" class="sr-only">البحث في الخصائص</h2>
+      <div class="search-box">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/>
+          <path d="m20 20-3.5-3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <input id="q" type="search" autocomplete="off" spellcheck="false"
+               placeholder="ابحث في 2000 خاصية… مثال: تثبيت عمود، تحقق، Gantt، دمج تكرارات">
+        <kbd>/</kbd>
+      </div>
+      <div class="search-meta" id="searchMeta" aria-live="polite"></div>
+      <div id="searchResults" class="search-results" role="list"></div>
+      <p class="hint">اختصارات: <kbd>/</kbd> للبحث · <kbd>Esc</kbd> للإغلاق · <kbd>R</kbd> خاصية عشوائية</p>
+    </section>
+
+    <!-- الأقسام -->
+    <section id="sections" class="wrap">
+      <div class="section-head reveal">
+        <h2>الأقسام المئة — كل قسم 20 خاصية</h2>
+        <p>انقر أي قسم لعرض خصائصه وتحديدها: <b>مخطّط</b> · <b>مُنفّذ</b> · <b>مُستبعد</b>. تُحفَظ حالاتك على هذا الجهاز.</p>
+      </div>
+      <div id="catChips" class="chips reveal" role="tablist" aria-label="تصفية حسب المجال"></div>
+      <div id="grid" class="grid"></div>
+      <p id="gridEmpty" class="grid-empty" hidden>لا توجد أقسام مطابقة — جرّب مجالًا آخر أو امسح البحث.</p>
+    </section>
+
+    <!-- البداية العملية -->
+    <section id="roadmap" class="wrap">
+      <div class="section-head reveal">
+        <h2>خارطة البداية العملية</h2>
+        <p>
+          ليست هذه القائمة توصية بتنفيذها كلها. ابدأ بهذه الموجة الأساسية التي تغطي تجربة الاستخدام اليومي،
+          ثم أضف خصائص المجال (المالية، المخزون، المشاريع…) حسب احتياج المستخدمين — واجعل المتقدم <b>اختياريًا</b>.
+        </p>
+      </div>
+      <ol id="roadmapGrid" class="roadmap"></ol>
+    </section>
+
+    <!-- عن القائمة -->
+    <section id="about" class="wrap">
+      <div class="about-panel reveal">
+        <div class="about-text">
+          <h2>عن هذه القائمة</h2>
+          <p>
+            هي فهرس مُستخرج لـ <b>2000 خاصية فعلية</b> للجداول التفاعلية وواجهات عرض البيانات،
+            مقسّمة إلى <b>100 قسم</b> بواقع <b>20 خاصية</b> في كل قسم، تغطي:
+            الجداول الإدارية، وجداول البيانات، والتقارير، وبعض الاستخدامات المتخصصة.
+          </p>
+          <p>
+            <b>ليست توصية بتنفيذها كلها</b> — اختر المناسب، واجعل الخصائص المتقدمة اختيارية حتى لا
+            تصبح الواجهة معقدة. استخدم البحث للعثور على خاصية محددة، أو تصفّح المجالات الثمانية عشر،
+            ثم عيّن حالتك لكل خاصية من داخل القسم واخترج ما علّمتَه.
+          </p>
+          <div class="about-actions">
+            <button class="btn primary" id="exportCsv" type="button">⬇ تنزيل القائمة كاملة (CSV)</button>
+            <button class="btn ghost" id="exportStatus" type="button">⬇ تصدير علاماتي (JSON)</button>
+          </div>
+        </div>
+        <aside class="about-side">
+          <h3>المجالات الثمانية عشر</h3>
+          <ul id="aboutCats"></ul>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <span>موسوعة خصائص الجداول — 2000 خاصية · 100 قسم · 20 مجالًا</span>
+      <span>صُمّمت لتُساعِد فرق المنتجات على اختيار ما يُنفَّذ فعلًا.</span>
+    </div>
+  </footer>
+
+  <!-- درج القسم -->
+  <div id="backdrop" class="backdrop" hidden></div>
+  <aside id="drawer" class="drawer" aria-hidden="true" aria-labelledby="dTitle" role="dialog">
+    <header class="drawer-head">
+      <div class="drawer-num" id="dNum"></div>
+      <div class="drawer-titles">
+        <span class="drawer-cat" id="dCat"></span>
+        <h3 id="dTitle"></h3>
+      </div>
+      <button id="closeDrawer" class="icon-btn" type="button" aria-label="إغلاق" title="إغلاق (Esc)">✕</button>
+    </header>
+    <div class="drawer-progress">
+      <div class="drawer-progress-bar"><i id="dBar"></i></div>
+      <span class="drawer-progress-text" id="dProgress"></span>
+    </div>
+    <ol id="dList" class="dlist"></ol>
+    <div class="drawer-foot">
+      <button class="btn ghost small" id="dReset" type="button">مسح علامات هذا القسم</button>
+    </div>
+  </aside>
+
+  <!-- التوست -->
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+
+  <button id="toTop" class="to-top" type="button" aria-label="العودة للأعلى" title="العودة للأعلى">↑</button>
+
+  <noscript><p class="noscript">هذا الموقع يحتاج إلى تفعيل جافاسكريبت لتصفح الخصائص.</p></noscript>
+
+  <script src="js/data-1.js"></script>
+  <script src="js/data-2.js"></script>
+  <script src="js/data-3.js"></script>
+  <script src="js/data-4.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
